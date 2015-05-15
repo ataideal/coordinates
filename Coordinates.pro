@@ -16,12 +16,14 @@ include(brisa.pri)
 SOURCES += main.cpp\
         coordinates.cpp\
 	functions.cpp \
-    view.cpp
+    view.cpp \
+    point.cpp
 
 HEADERS  += coordinates.h\
 	 functions.h \
     coordinates_ui.h \
-    view.h
+    view.h \
+    point.h
 
 RESOURCES += \
     resource.qrc

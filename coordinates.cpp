@@ -22,7 +22,7 @@ coordinates::coordinates(QWidget *parent)
 
     view = new View();
     this->layout()->addWidget(view);
-    connect(view,SIGNAL(clicked(QMouseEvent*)),this,SLOT(updateLabel(QMouseEvent*)));
+    connect(view,SIGNAL(click(QMouseEvent*)),this,SLOT(updateLabel(QMouseEvent*)));
 }
 
 coordinates::~coordinates()
@@ -32,6 +32,5 @@ coordinates::~coordinates()
 
 
 void coordinates::updateLabel(QMouseEvent *event){
-    qDebug() << "label";
-    label->setText("x:"+ QString(event->x()) +"y:"+ QString(event->y()));
+    label->setText("X: "+ QString::number(event->x()) +"Y: "+ QString::number(event->y()));
 }

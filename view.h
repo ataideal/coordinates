@@ -3,16 +3,25 @@
 #include <QGraphicsView>
 #include <QDebug>
 #include <QMouseEvent>
-#include <QObject>
+#include "point.h"
 
 class View : public QGraphicsView
 {
+    Q_OBJECT
 public:
     View();
     ~View();
-
     void mousePressEvent(QMouseEvent *event);
-    void clicado(QMouseEvent *event);
+    void mouseMoveEvent(QMouseEvent *event);
+
+    QList<point *> *getPointsList();
+
+signals:
+    void click(QMouseEvent *event);
+
+private:
+     QList<point *> *points;
+     QGraphicsScene *scene;
 };
 
 #endif // VIEW_H
