@@ -11,7 +11,7 @@ coordinates::coordinates(QWidget *parent)
     this->setMinimumSize(screenSize);
     this->setMaximumSize(screenSize);
 
-    button = new QPushButton("Button");
+    button = new QPushButton("Clear Points");
     coordinatesLabel = new QLabel("X: Y:");
 
     /*

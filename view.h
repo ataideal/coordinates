@@ -6,6 +6,7 @@
 #include <QApplication>
 #include <QMouseEvent>
 #include <QDebug>
+#include <QList>
 
 #include "point.h"
 #include "line.h"
@@ -26,7 +27,7 @@ signals:
 public slots:
      void clearPoints();
 private:
-
+     QList<point*> *pointList;
      line *axys_x;
      line *axys_y;
      QGraphicsScene *scene;

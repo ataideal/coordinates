@@ -5,6 +5,7 @@ View::View():QGraphicsView()
     setMouseTracking(true);
 
     scene = new QGraphicsScene();
+    pointList = new QList<point*>();
 
     axys_x = NULL;
     axys_y = NULL;
@@ -37,6 +38,7 @@ void View::mousePressEvent(QMouseEvent *event){
     if(event->button() == Qt::LeftButton)
     {
         point *currentPoint = new point(event->x(), event->y());
+        pointList->append(currentPoint);
         scene->addItem(currentPoint);
     }
 
@@ -68,7 +70,10 @@ void View::mouseMoveEvent(QMouseEvent *event){
     scene->addItem(axys_y);
 }
 
+
 void View::clearPoints()
 {
-    scene->clear();
+    foreach (point *point, *pointList) {
+         scene->removeItem(point);
+    }
 }
