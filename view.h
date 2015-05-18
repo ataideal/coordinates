@@ -23,7 +23,8 @@ public:
 
 signals:
     void click(QMouseEvent *event);
-
+public slots:
+     void clearPoints(QKeyEvent *event);
 private:
 
      line *axys_x;

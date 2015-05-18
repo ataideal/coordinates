@@ -24,6 +24,8 @@ public:
     coordinates(QWidget *parent = 0);
     ~coordinates();
 
+    void keyPressEvent(QKeyEvent *event);
+
     QLabel *coordinatesLabel;
     QPushButton *button;
     View *view;
@@ -31,7 +33,8 @@ public:
 public slots:
 
     void updateLabel(QMouseEvent *event);
-
+signals:
+    void clear(QKeyEvent *event);
 private:
 
     QSize screenSize;

@@ -67,3 +67,8 @@ void View::mouseMoveEvent(QMouseEvent *event){
     scene->addItem(axys_x);
     scene->addItem(axys_y);
 }
+
+void View::clearPoints(QKeyEvent *event)
+{
+    scene->clear();
+}
