@@ -8,6 +8,7 @@
 #include <QDebug>
 
 #include "point.h"
+#include "line.h"
 
 class View : public QGraphicsView
 {
@@ -20,14 +21,13 @@ public:
     void mousePressEvent(QMouseEvent *event);
     void mouseMoveEvent(QMouseEvent *event);
 
-    QList<point *> *getPointsList();
-
 signals:
     void click(QMouseEvent *event);
 
 private:
 
-     QList<point *> *points;
+     line *axys_x;
+     line *axys_y;
      QGraphicsScene *scene;
 };
 

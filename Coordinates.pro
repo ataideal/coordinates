@@ -17,13 +17,15 @@ SOURCES += main.cpp\
         coordinates.cpp\
 	functions.cpp \
     view.cpp \
-    point.cpp
+    point.cpp \
+    line.cpp
 
 HEADERS  += coordinates.h\
 	 functions.h \
     coordinates_ui.h \
     view.h \
-    point.h
+    point.h \
+    line.h
 
 RESOURCES += \
     resource.qrc
