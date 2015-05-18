@@ -1,16 +1,20 @@
 #ifndef COORDINATES_H
 #define COORDINATES_H
 
-#include <QWidget>
-#include <QSize>
-#include <QLabel>
-#include <QApplication>
 #include <QDesktopWidget>
-#include <QPushButton>
 #include <QGraphicsView>
+#include <QApplication>
+#include <QPushButton>
 #include <QObject>
+#include <QWidget>
+#include <QLabel>
+#include <QSize>
 
-#include <view.h>
+/*
+ * Somente bibliotecas do sistema ficam com <>
+ * as criadas por nós são envolvidas por aspas duplas ""
+ */
+#include "view.h"
 
 class coordinates : public QWidget
 {
@@ -20,13 +24,17 @@ public:
     coordinates(QWidget *parent = 0);
     ~coordinates();
 
-    QLabel *label;
+    QLabel *coordinatesLabel;
     QPushButton *button;
-    QSize screenSize;
     View *view;
 
 public slots:
+
     void updateLabel(QMouseEvent *event);
+
+private:
+
+    QSize screenSize;
 
 };
 

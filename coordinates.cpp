@@ -6,19 +6,41 @@ coordinates::coordinates(QWidget *parent)
 {
     coordinates_ui::setupUi(this);
 
-    this->setMinimumSize(QApplication::desktop()->size());
-    this->setMaximumSize(QApplication::desktop()->size());
+    screenSize = QApplication::desktop()->size();
+
+    this->setMinimumSize(screenSize);
+    this->setMaximumSize(screenSize);
 
     button = new QPushButton("Button");
-    label = new QLabel("X: Y:");
+    coordinatesLabel = new QLabel("X: Y:");
 
-    QVBoxLayout *teste = new QVBoxLayout();
-    teste->addWidget(button);
-    teste->addWidget(label);
-    this->layout()->addItem(teste);
+    /*
+     * Nunca deixar nome de variáveis como sideBarLayout, button, label
+     * Sempre dar nomes que sejam fáceis de identificar o componente
+     *
+     * Para evitar de ficar chamando o atributo QApplication::desktop()->size(),
+     * Criei uma variavel local que armazenará isso. Aumentaremos assim a legibilidade
+     * do código!
+     */
 
-    this->layout()->addWidget(button);
-    this->layout()->addWidget(label);
+
+    /*
+     * No problema em que nos encontramos, o ideal é criar um QWidget
+     * para botar o QVBoxLayout dentro, pois assim poderemos limitar o
+     * o tamanho do layout
+     */
+
+
+    QWidget *sideBar = new QWidget(this);
+    sideBar->setLayout(new QVBoxLayout(sideBar));
+
+    sideBar->setMinimumSize(screenSize.width()/5, screenSize.height());
+    sideBar->setMaximumSize(screenSize.width()/5, screenSize.height());
+
+    sideBar->layout()->addWidget(button);
+    sideBar->layout()->addWidget(coordinatesLabel);
+
+    this->layout()->addWidget(sideBar);
 
     view = new View();
     this->layout()->addWidget(view);
@@ -32,5 +54,5 @@ coordinates::~coordinates()
 
 
 void coordinates::updateLabel(QMouseEvent *event){
-    label->setText("X: "+ QString::number(event->x()) +"Y: "+ QString::number(event->y()));
+    coordinatesLabel->setText("X: "+ QString::number(event->x()) +"Y: "+ QString::number(event->y()));
 }

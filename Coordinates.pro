@@ -11,7 +11,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = Coordinates
 TEMPLATE = app
 
-include(brisa.pri)
+#include(brisa.pri)
 
 SOURCES += main.cpp\
         coordinates.cpp\

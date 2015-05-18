@@ -15,11 +15,11 @@
 #define SERVICE_CONTROL "/Functions/control"
 #define SERVICE_EVENT_SUB "/Functions/eventSub"
 
-#include "upnp/Action"
-#include "upnp/device/Service"
+//#include "upnp/Action"
+//#include "upnp/device/Service"
 #include <QtDebug>
 
-class Functions : public brisa::upnp::device::Service
+class Functions : public QObject/* : public brisa::upnp::device::Service*/
 {
     Q_OBJECT
 
@@ -34,13 +34,13 @@ private slots:
      * Essa função retorna o valor da variável Status.
      * O valor padrão da variável Status é " - ".
      */
-    OutArgument* getStatus();
+//    OutArgument* getStatus();
 
     /*
      * Essa função define o valor da variável Status através da variável Target.
      * O valor padrão da variável Target é " - "
      */
-    OutArgument* setStatus(InArgument *const inArguments);
+//    OutArgument* setStatus(InArgument *const inArguments);
 
 };
 
