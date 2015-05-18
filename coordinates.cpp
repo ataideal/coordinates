@@ -45,20 +45,13 @@ coordinates::coordinates(QWidget *parent)
     view = new View();
     this->layout()->addWidget(view);
     connect(view,SIGNAL(click(QMouseEvent*)),this,SLOT(updateLabel(QMouseEvent*)));
-    connect(this,SIGNAL(clear(QKeyEvent*)),view,SLOT(clearPoints(QKeyEvent*)));
+    connect(button,SIGNAL(clicked()),view,SLOT(clearPoints()));
 }
 
 coordinates::~coordinates()
 {
 
 }
-
-void coordinates::keyPressEvent(QKeyEvent *event)
-{
-    qDebug() << "clear";
-    emit clear(event);
-}
-
 
 void coordinates::updateLabel(QMouseEvent *event){
     coordinatesLabel->setText("X: "+ QString::number(event->x()) +"Y: "+ QString::number(event->y()));
